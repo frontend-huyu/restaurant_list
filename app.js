@@ -5,7 +5,7 @@ const port = 3000
 
 // handlebars@3.0.0 setting
 const exphbs = require('express-handlebars')
-// restaurant's list
+// restaurant list
 const restaurantList = require('./restaurant.json').results
 
 //template engine setting
@@ -20,8 +20,15 @@ app.get('/homepage', (req, res) => {
 // static files
 app.use(express.static('public'))
 
-
-
+// show restaurant cards
+app.get('/homepage/restaurants/:id', (req, res) => {
+  // console.log(req.params.id)
+  const paramsId = req.params.id
+  const restaurant = restaurantList.find(function (restaurant) {
+    return restaurant.id.toString() === paramsId
+  })
+  res.render('show', { restaurant: restaurant })
+})
 
 
 
