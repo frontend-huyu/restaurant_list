@@ -17,7 +17,8 @@ app.get('/homepage', (req, res) => {
   res.render('index', { restaurants: restaurantList })
 })
 
-
+// static files
+app.use(express.static('public'))
 
 
 
