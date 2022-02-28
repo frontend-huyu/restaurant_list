@@ -30,18 +30,7 @@ app.get('/homepage/restaurants/:id', (req, res) => {
   res.render('show', { restaurant: restaurant })
 })
 
-// search for name or category
-app.get('/search', (req, res) => {
 
-  const keywords = req.query.keyword
-  const keyword = req.query.keyword.trim().toLowerCase()
-
-  const filterRestaurantList = restaurantList.filter(function (results) {
-    return results.name.toLowerCase().includes(keyword) || results.name_en.toLowerCase().includes(keyword) || results.category.includes(keyword)
-  })
-
-  res.render('index', { restaurants: filterRestaurantList, keyword: keywords })
-})
 
 // Listen the server when it started
 app.listen(port, () => {
