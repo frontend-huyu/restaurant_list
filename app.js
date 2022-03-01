@@ -34,11 +34,6 @@ app.get('/homepage/restaurants/:id', (req, res) => {
 
 app.get('/search', (req, res) => {
 
-  if (req.query.keywords === undefined) {
-    res.redirect('/homepage')
-    return
-  }
-
   const keywords = req.query.keyword
   const keyword = req.query.keyword.trim().toLowerCase()
 
