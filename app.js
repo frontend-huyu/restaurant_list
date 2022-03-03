@@ -34,6 +34,16 @@ app.get('/homepage/restaurants/:id', (req, res) => {
 
 app.get('/search', (req, res) => {
 
+  // don't write like this, it will crash.
+  // if (!req.query.keyword) {
+  //   res.redirect("/homepage")
+  // }
+
+
+  if (req.query.keyword === false) {
+    res.redirect("/homepage")
+  }
+
   const keywords = req.query.keyword
   const keyword = req.query.keyword.trim().toLowerCase()
 
